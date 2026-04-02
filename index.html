@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nx-7: Dead Horizon — Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Share+Tech+Mono&family=Oswald:wght@300;400;600;700&family=Special+Elite&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#" class="nav-logo" onclick="showPage('home'); return false;">Nx-7: Dead Horizon</a>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home'); return false;" class="active" data-page="home">Accueil</a></li>
+            <li><a href="#" onclick="showPage('zombies'); return false;" data-page="zombies">Zombies</a></li>
+        <li><a href="#" onclick="showPage('survivants'); return false;" data-page="survivants">Survivants</a></li>
+            <li><a href="#" onclick="showPage('lore'); return false;" data-page="lore">Lore</a></li>
+            <li><a href="#" onclick="showPage('mods'); return false;" data-page="mods">Mods</a></li>
+        </ul>
+        <span class="nav-alert">⚠ INFECTION ACTIVE</span>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="page-home">
+        <div class="hero-bg"></div>
+
+        <div class="drip-container" id="drips"></div>
+
+        <span class="hero-eyebrow">// Minecraft 1.20.1 — Modpack Documentation</span>
+
+        <h1 class="hero-title">
+            <span class="line1">Nx-7:</span>
+            <span class="line2">Dead Horizon</span>
+        </h1>
+
+        <p class="hero-sub">
+            Le monde tel que vous le connaissiez n'existe plus. Les villes sont tombées,
+            les survivants se comptent sur les doigts d'une main.
+            Bienvenue dans les terres contaminées.
+        </p>
+
+        <div class="hero-stats">
+            <div class="stat-block">
+                <div class="stat-num">5</div>
+                <div class="stat-label">Tiers de menaces</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-num" id="mod-count-hero">120+</div>
+                <div class="stat-label">Mods actifs</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-num">∞</div>
+                <div class="stat-label">Jours de survie</div>
+            </div>
+        </div>
+
+        <div class="hero-cta">
+            <a href="#" class="btn btn-primary" onclick="showPage('zombies'); return false;">Explorer les menaces</a>
+            <a href="#" class="btn btn-secondary" onclick="showPage('lore'); return false;">Lire le lore</a>
+        </div>
+
+        <div class="scroll-indicator">DÉFILER</div>
+    </div>
+
+    <!-- ZOMBIES PAGE -->
+    <div id="page-zombies" class="page">
+        <div class="section-header">
+            <div class="section-header-text">
+                <div class="section-eyebrow">// Catalogue des menaces</div>
+                <h2 class="section-title">Zombies & Infectés</h2>
+            </div>
+        </div>
+
+        <div class="zombie-filter-bar">
+            <button class="filter-btn active" onclick="filterZombies('all', this)">Tous</button>
+            <button class="filter-btn tier-filter" data-tier="1" onclick="filterZombies(1, this)">◆ Tier 1 —
+                Commun</button>
+            <button class="filter-btn tier-filter" data-tier="2" onclick="filterZombies(2, this)">◆ Tier 2 —
+                Dangereux</button>
+            <button class="filter-btn tier-filter" data-tier="3" onclick="filterZombies(3, this)">◆ Tier 3 —
+                Élite</button>
+            <button class="filter-btn tier-filter" data-tier="4" onclick="filterZombies(4, this)">◆ Tier 4 —
+                Boss</button>
+            <button class="filter-btn tier-filter" data-tier="5" onclick="filterZombies(5, this)">◆ Tier 5 —
+                Apex</button>
+        </div>
+
+        <div class="zombie-grid" id="zombieGrid"></div>
+    </div>
+
+    <!-- SURVIVANTS PAGE -->
+    <div id="page-survivants" class="page">
+        <div class="section-header">
+            <div class="section-header-text">
+                <div class="section-eyebrow">// Registre des vivants</div>
+                <h2 class="section-title">Survivants & Alliés</h2>
+            </div>
+        </div>
+
+        <div class="survivor-filter-bar">
+            <button class="surv-filter-btn active" onclick="filterSurvivants('all', this)">Tous</button>
+            <button class="surv-filter-btn" data-cat="humain" onclick="filterSurvivants('humain', this)">⬡ Humains</button>
+            <button class="surv-filter-btn" data-cat="animal" onclick="filterSurvivants('animal', this)">⬡ Animaux</button>
+            <button class="surv-filter-btn" data-cat="allie" onclick="filterSurvivants('allie', this)">⬡ Alliés</button>
+            <button class="surv-filter-btn" data-cat="hostile" onclick="filterSurvivants('hostile', this)">⬡ Hostiles</button>
+        </div>
+
+        <div class="survivor-grid" id="survivantGrid"></div>
+    </div>
+
+    <!-- MODAL SURVIVANTS -->
+    <div class="surv-modal-overlay" id="survModalOverlay" onclick="closeSurvModal(event)">
+        <div class="surv-modal" id="survivantModal">
+            <button class="modal-close" onclick="closeSurvModalBtn()">✕</button>
+            <div class="modal-header">
+                <div class="modal-img-wrap" id="survModalImg">
+                    <span class="surv-placeholder">🧍</span>
+                </div>
+                <div class="modal-header-text">
+                    <div class="modal-tier" id="survModalCat"></div>
+                    <h2 id="survModalName"></h2>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p id="survModalDesc"></p>
+                <div class="modal-stats-grid" id="survModalStats"></div>
+                <div class="modal-tags" id="survModalTags"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LORE PAGE -->
+    <div id="page-lore" class="page">
+ 
+ 
+        <h1 class="hero-title">
+            <span class="line1">Work</span>
+            <span class="line2">In Progress</span>
+        </h1>
+
+        <!-- <div class="section-header">
+            <div class="section-header-text">
+                <div class="section-eyebrow">// Archives contaminées</div>
+                <h2 class="section-title">Chronique de l'Apocalypse</h2>
+            </div>
+        </div>
+
+        <div class="lore-container">
+
+            <div class="timeline">
+                <div class="timeline-event">
+                    <div class="timeline-date">// JOUR 0 — AN ZÉRO</div>
+                    <h4>Le Patient Zéro</h4>
+                    <p>Personne ne sait exactement où tout a commencé. Certains parlent d'un laboratoire souterrain.
+                        D'autres, d'un météorite. La vérité est que le virus Nx-7 s'est répandu en moins de 72 heures
+                        dans les grandes villes.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">// JOUR 14 — PREMIERS RAPPORTS</div>
+                    <h4>Mutation Accélérée</h4>
+                    <p>Les scientifiques encore en vie ont constaté que les infectés évoluaient plus vite que prévu. Les
+                        premiers Errants de Nuit ont été aperçus, esquivant la lumière du jour avec une précision
+                        troublante.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">// JOUR 47 — EFFONDREMENT</div>
+                    <h4>Chute des Gouvernements</h4>
+                    <p>Les dernières stations radio se sont tues. Les zones militarisées ont été submergées. Les
+                        survivants ont fui vers les terres sauvages, espérant que la nature offrirait une protection que
+                        l'humanité n'avait pu garantir.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">// AUJOURD'HUI — TERRES CONTAMINÉES</div>
+                    <h4>L'Ère des Survivants</h4>
+                    <p>Vous êtes l'un d'eux. Les infectés ont évolué en cinq catégories de menace distinctes. Apprenez à
+                        les reconnaître. Votre survie en dépend.</p>
+                </div>
+            </div>
+
+            <div class="lore-chapter" data-chapter="// DOSSIER ALPHA — CLASSIFICATION">
+                <h3>Le Système de Tiers</h3>
+                <p>L'organisation de survivants connue sous le nom de "Les Archivistes" a établi un système de
+                    classification des infectés basé sur leurs capacités offensives, leur résistance et leur
+                    comportement.</p>
+                <p>Ce système, appelé Protocole APEX, divise les infectés en cinq niveaux de danger. Chaque niveau
+                    représente une évolution du virus Nx-7, une adaptation supplémentaire aux conditions du monde
+                    post-apocalyptique.</p>
+                <div class="lore-classified">
+                    <p>Les infectés de Tier 5 ont été observés uniquement dans les zones de <span
+                            class="redacted">irradiation maximale</span>. Tout survivant pénétrant dans ces zones sans
+                        équipement de niveau <span class="redacted">████</span> est considéré comme perdu.</p>
+                </div>
+            </div>
+
+            <div class="lore-chapter" data-chapter="// DOSSIER BÊTA — COMPORTEMENT">
+                <h3>Cycle Inversé</h3>
+                <p>L'une des particularités les plus surprenantes du virus Nx-7 est son effet sur le cycle circadien des
+                    infectés. Contrairement aux humains, les zombies sont nocturnes.</p>
+                <p>Durant la journée, ils se terrent dans les profondeurs — grottes, mines abandonnées, sous-sols des
+                    bâtiments effondrés. À la tombée de la nuit, ils émergent en masse, envahissant la surface avec une
+                    aggresivité décuplée.</p>
+                <p>Les hordes nocturnes, coordonnées par des infectés de rang élevé, constituent la plus grande menace
+                    pour tout campement non fortifié. Ne vous faites pas surprendre dehors après le coucher du soleil.
+                </p>
+            </div>
+
+        </div> -->
+    </div>
+
+    <!-- MODS PAGE -->
+    <div id="page-mods" class="page">
+        <div class="section-header">
+            <div class="section-header-text">
+                <div class="section-eyebrow">// Arsenal du modpack</div>
+                <h2 class="section-title">Liste des Mods</h2>
+            </div>
+        </div>
+
+        <div class="mods-search">
+            <input type="text" id="modSearch" placeholder="Rechercher un mod..." oninput="filterMods()">
+            <span class="mods-count" id="modsCount"></span>
+        </div>
+
+        <div class="mods-grid" id="modsGrid"></div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" id="zombieModal">
+            <button class="modal-close" onclick="closeModalBtn()">✕</button>
+            <div class="modal-header">
+                <div class="modal-img-wrap" id="modalImg">
+                    <span class="zombie-placeholder">?</span>
+                </div>
+
+                <div class="modal-header-content">
+                    <div class="modal-header-text">
+                        <div class="modal-tier" id="modalTier"></div>
+                        <h2 id="modalName"></h2>
+                    </div>
+
+                    <div class="modal-zombie-stat">
+                        <div class="modal-z-stat">
+                            <div class="modal-z-stat-label">Danger</div>
+                            <div class="modal-z-stat-bar" id="bar1_danger">
+                                <div id="stat_danger" class="modal-z-stat-fill"></div>
+                            </div>
+                            <div class="modal-z-stat-bar" id="bar2_danger">
+                                <div id="stat_danger2" class="modal-z-stat-fill"></div>
+                            </div>
+                        </div>
+                        <div class="modal-z-stat">
+                            <div class="modal-z-stat-label">Vitesse</div>
+                            <div class="modal-z-stat-bar" id="bar1_speed">
+                                <div id="stat_speed" class="modal-z-stat-fill"></div>
+                            </div>
+                            <div class="modal-z-stat-bar" id="bar2_speed">
+                                <div id="stat_speed2" class="modal-z-stat-fill"></div>
+                            </div>
+                        </div>
+                        <div class="modal-z-stat">
+                            <div class="modal-z-stat-label">Résistance</div>
+                            <div class="modal-z-stat-bar" id="bar1_toughness">
+                                <div id="stat_toughness" class="modal-z-stat-fill"></div>
+                            </div>
+                            <div class="modal-z-stat-bar" id="bar2_toughness">
+                                <div id="stat_toughness2" class="modal-z-stat-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-body">
+                
+                <p id="modalDesc"></p>
+
+                <div class="modal-stats-grid" id="modalStats"></div>
+                <div class="modal-tags" id="modalTags"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-logo">Nx-7: Dead Horizon</div>
+        <div class="footer-text">Minecraft 1.20.1 — Documentation officielle — JuicyZ</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
