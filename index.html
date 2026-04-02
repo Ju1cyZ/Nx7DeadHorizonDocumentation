@@ -20,7 +20,7 @@
         <ul class="nav-links">
             <li><a href="#" onclick="showPage('home'); return false;" class="active" data-page="home">Accueil</a></li>
             <li><a href="#" onclick="showPage('zombies'); return false;" data-page="zombies">Zombies</a></li>
-        <li><a href="#" onclick="showPage('survivants'); return false;" data-page="survivants">Survivants</a></li>
+            <li><a href="#" onclick="showPage('survivants'); return false;" data-page="survivants">Survivants</a></li>
             <li><a href="#" onclick="showPage('lore'); return false;" data-page="lore">Lore</a></li>
             <li><a href="#" onclick="showPage('mods'); return false;" data-page="mods">Mods</a></li>
         </ul>
@@ -106,10 +106,13 @@
 
         <div class="survivor-filter-bar">
             <button class="surv-filter-btn active" onclick="filterSurvivants('all', this)">Tous</button>
-            <button class="surv-filter-btn" data-cat="humain" onclick="filterSurvivants('humain', this)">⬡ Humains</button>
-            <button class="surv-filter-btn" data-cat="animal" onclick="filterSurvivants('animal', this)">⬡ Animaux</button>
+            <button class="surv-filter-btn" data-cat="humain" onclick="filterSurvivants('humain', this)">⬡
+                Humains</button>
+            <button class="surv-filter-btn" data-cat="animal" onclick="filterSurvivants('animal', this)">⬡
+                Animaux</button>
             <button class="surv-filter-btn" data-cat="allie" onclick="filterSurvivants('allie', this)">⬡ Alliés</button>
-            <button class="surv-filter-btn" data-cat="hostile" onclick="filterSurvivants('hostile', this)">⬡ Hostiles</button>
+            <button class="surv-filter-btn" data-cat="hostile" onclick="filterSurvivants('hostile', this)">⬡
+                Hostiles</button>
         </div>
 
         <div class="survivor-grid" id="survivantGrid"></div>
@@ -138,8 +141,7 @@
 
     <!-- LORE PAGE -->
     <div id="page-lore" class="page">
- 
- 
+
         <h1 class="hero-title">
             <span class="line1">Work</span>
             <span class="line2">In Progress</span>
@@ -156,31 +158,44 @@
 
             <div class="timeline">
                 <div class="timeline-event">
-                    <div class="timeline-date">// JOUR 0 — AN ZÉRO</div>
-                    <h4>Le Patient Zéro</h4>
-                    <p>Personne ne sait exactement où tout a commencé. Certains parlent d'un laboratoire souterrain.
-                        D'autres, d'un météorite. La vérité est que le virus Nx-7 s'est répandu en moins de 72 heures
-                        dans les grandes villes.</p>
+                    <div class="timeline-date">// JOUR 0 — LE VIRUS ÉMERGE</div>
+                    <h4>Les Premières Fissures</h4>
+                    <p>Une entité biologique échappe au contrôle de ses créateurs. Les villes proches commencent à montrer des signes inquiétants. Personne ne peut prévoir l’ampleur de ce qui vient.</p>
                 </div>
                 <div class="timeline-event">
-                    <div class="timeline-date">// JOUR 14 — PREMIERS RAPPORTS</div>
-                    <h4>Mutation Accélérée</h4>
-                    <p>Les scientifiques encore en vie ont constaté que les infectés évoluaient plus vite que prévu. Les
-                        premiers Errants de Nuit ont été aperçus, esquivant la lumière du jour avec une précision
-                        troublante.</p>
+                    <div class="timeline-date">// JOUR 30 — SIGNAUX D’ALERTE</div>
+                    <h4>Mutations Initiales</h4>
+                    <p>Les infectés développent des comportements imprévisibles. Des zones urbaines sont déclarées quarantaines, mais certaines populations persistent malgré le danger.</p>
                 </div>
                 <div class="timeline-event">
-                    <div class="timeline-date">// JOUR 47 — EFFONDREMENT</div>
-                    <h4>Chute des Gouvernements</h4>
-                    <p>Les dernières stations radio se sont tues. Les zones militarisées ont été submergées. Les
-                        survivants ont fui vers les terres sauvages, espérant que la nature offrirait une protection que
-                        l'humanité n'avait pu garantir.</p>
+                    <div class="timeline-date">// JOUR 90 — CHUTE DES INFRASTRUCTURES</div>
+                    <h4>Premiers Effondrements</h4>
+                    <p>Les communications échouent, les réseaux électriques tombent. Les villes se transforment en ruines. Les survivants doivent fuir ou se barricader.</p>
                 </div>
                 <div class="timeline-event">
-                    <div class="timeline-date">// AUJOURD'HUI — TERRES CONTAMINÉES</div>
-                    <h4>L'Ère des Survivants</h4>
-                    <p>Vous êtes l'un d'eux. Les infectés ont évolué en cinq catégories de menace distinctes. Apprenez à
-                        les reconnaître. Votre survie en dépend.</p>
+                    <div class="timeline-date">// JOUR 180 — ÉMERGENCE DES HORDES</div>
+                    <h4>Propagation Rapide</h4>
+                    <p>Les infectés deviennent plus organisés et agressifs. Les rencontres nocturnes sont désormais la norme. Les territoires sûrs sont rares et précieux.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">// JOUR 365 — UN AN D’APOCALYPSE</div>
+                    <h4>Les Survivants</h4>
+                    <p>Après un an, la majorité des infrastructures humaines est détruite. Les survivants se regroupent en communautés, fortifiant chaque refuge pour faire face aux infectés de plus en plus puissants.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">// JOUR 500 — NOUVELLE ÉVOLUTION</div>
+                    <h4>Mutations Avancées</h4>
+                    <p>Les infectés montrent des adaptations inédites : vitesse accrue, coordination nocturne, comportements prédateurs. Explorer le monde devient une mission mortelle à chaque sortie.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">// JOUR 600 — TERRES SAUVAGES</div>
+                    <h4>Exode des Survivants</h4>
+                    <p>Les zones urbaines sont abandonnées. La nature reprend ses droits sur les villes en ruines. Chaque sortie devient un test de survie et de stratégie.</p>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">// JOUR 730 — DEUX ANS APRÈS</div>
+                    <h4>L’Ère des Survivants</h4>
+                    <p>Deux ans après le début de l’épidémie, seuls les plus résilients tiennent encore. Les infectés ont atteint des niveaux de danger sans précédent. Comprendre le virus est désormais la seule chance de survie.</p>
                 </div>
             </div>
 
@@ -208,6 +223,40 @@
                     aggresivité décuplée.</p>
                 <p>Les hordes nocturnes, coordonnées par des infectés de rang élevé, constituent la plus grande menace
                     pour tout campement non fortifié. Ne vous faites pas surprendre dehors après le coucher du soleil.
+                </p>
+            </div>
+
+            <div class="lore-chapter" data-chapter="// AVIS DE DÉPLOIEMENT — DIVISION RECHERCHE">
+                <h3>Mission de Renseignements</h3>
+                <p>
+                    <em>Confidentiel – Protocole APEX</em>
+                </p>
+                <p>
+                    Cher(e) Candidat(e),
+                </p>
+                <p>
+                    Suite aux récents événements survenus dans plusieurs zones urbaines contaminées, votre expertise scientifique a été identifiée comme essentielle pour la mission qui nous incombe. 
+                    Votre tâche consistera à collecter, analyser et sécuriser toutes informations pertinentes concernant l’agent biologique connu sous le nom de <strong>NX-7</strong>.
+                </p>
+                <p>
+                    Vous serez déployé(e) sur le terrain avec un accès prioritaire aux zones affectées. Chaque observation et donnée rapportée contribuera à notre compréhension et à la mise en place de protocoles de sécurité adaptés.
+                </p>
+                <p>
+                    Attention : Les zones contaminées sont extrêmement dangereuses. Les infectés sont organisés et leur comportement est imprévisible, en particulier la nuit. Tout manquement aux directives de sécurité peut entraîner la perte totale de contact.
+                </p>
+                <p>
+                    Votre coopération est indispensable. Le succès de cette mission est une condition préalable à la sécurité des zones encore habitables et à la collecte de renseignements sur le virus.
+                </p>
+                <p>
+                    Bienvenue dans le programme <strong>Protocole APEX</strong>. Votre rôle pourrait bien déterminer l’avenir de l’humanité.
+                </p>
+                <p>
+                    <em>Instruction complémentaire : un kit de terrain et des directives initiales vous seront fournis à votre arrivée.</em>
+                </p>
+                <p>
+                    Cordialement,<br>
+                    <strong>Le Commandement Scientifique</strong><br>
+                    <em>Division Recherche & Contention – Confidentialité maximale</em>
                 </p>
             </div>
 
@@ -279,7 +328,7 @@
 
             </div>
             <div class="modal-body">
-                
+
                 <p id="modalDesc"></p>
 
                 <div class="modal-stats-grid" id="modalStats"></div>
