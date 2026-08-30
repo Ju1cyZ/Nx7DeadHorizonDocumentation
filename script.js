@@ -38,8 +38,30 @@ const zombies = [
         threat: "Faible"
     },
     {
-        name: "Zombie Villageois",
+        name: "Zombie Crawler",
         tier: 1,
+        description: "Mutation du zombie commun, le Zombie Crawler est une créature dont le corps a été ravagé par une nécrose avancée. La moitié inférieure de son corps a progressivement disparu, détruite par la décomposition des tissus et l’évolution du virus. Malgré cela, l’infection maintient encore suffisamment son organisme en état de fonctionner pour lui permettre de se déplacer."+
+        "\n\nPrivé de ses jambes, il se traîne désormais sur ses bras et le haut de son corps. Les restes de sa peau et de ses tissus pendent encore de son corps en lambeaux, couverts de sang et de traces de nécrose. Cette apparence particulièrement dégradée témoigne de l’état avancé de l’infection."+
+        "\n\nMalgré son état, le Zombie Crawler continue d’évoluer. Le virus cherche constamment à compenser les parties de son corps qu’il a perdues, renforçant progressivement ses muscles et ses membres supérieurs afin d’améliorer sa mobilité et sa capacité à poursuivre ses proies. Plus il évolue, plus il devient difficile à distancer."+
+        "\n\nSa mobilité réduite l’empêche de poursuivre efficacement les proies rapides, mais il compense par sa capacité à se déplacer dans des endroits où les autres zombies auraient du mal à passer. Il peut notamment se faufiler sous certains obstacles et surgir de zones difficiles à surveiller."+
+        "\n\nBien qu’il soit lent et fortement diminué physiquement, il ne faut jamais le sous-estimer. Dans l’obscurité ou lorsqu’il est dissimulé parmi les débris, il peut facilement passer inaperçu jusqu’à ce qu’il soit déjà trop proche."+
+        "\n\nUn corps presque entièrement détruit… mais une infection qui refuse de mourir.",
+        // Danger : Dégats PV enlever au joueur * 5
+        // Vitesse : au feeling ta capter
+        // Résistance : Point d'armure * 5
+        stats: { danger: 20, vitesse: 12, résistance: 10 },
+        statsMax: { danger: 15, vitesse: 60, résistance: 100 },
+        tags: ["Commun", "Adaptive"],
+        hp: "16  PV",
+        spawn: "Partout",
+        // Tier 1 : Faible → Modéré | Tier 2 : Élevée → Très Élevée | Tier 3 Critique → Extrême | Tier 4 : Mortelle → Apocalyptique | Tier 5 : Dévastatrice → Apex
+        threat: "Faible"
+    },
+
+    // Tier 2
+    {
+        name: "Zombie Villageois",
+        tier: 2,
         description: "Ancien paysan victime de l’infection, ce zombie erre désormais dans les villes abandonnées. Contrairement aux autres infectés, il ne semble pas affecté par le cycle jour/nuit et reste actif en permanence, hantant les bâtiments et les rues désertes sans relâche." + 
         "\n\nAvant l’infection, il était passif, inoffensif, vivant simplement de son travail et de ses échanges. Mais le virus a réveillé une part sombre en lui, une véritable bête. Ce qui était autrefois un être paisible est devenu une créature agressive, imprévisible et animée d’une rage constante." + 
         "\n\nAu début de l’épidémie, de nombreux paysans continuaient à se rendre en ville pour commercer ou choisissaient même de s’y installer. Certains étaient déjà infectés sans le savoir… et c’est ainsi que le virus s’est propagé rapidement dans les zones urbaines. Cette concentration d’infectés explique leur forte présence en ville aujourd’hui."+
@@ -56,8 +78,6 @@ const zombies = [
         // Tier 1 : Faible → Modéré | Tier 2 : Élevée → Très Élevée | Tier 3 Critique → Extrême | Tier 4 : Mortelle → Apocalyptique | Tier 5 : Dévastatrice → Apex
         threat: "Modéré"
     },
-
-    // Tier 2
     {
         name: "Zombie Policier",
         tier: 2,
