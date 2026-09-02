@@ -35,7 +35,7 @@ const zombies = [
         hp: "20  PV",
         spawn: "Sous-terrain",
         // Tier 1 : Faible → Modéré | Tier 2 : Élevée → Très Élevée | Tier 3 Critique → Extrême | Tier 4 : Mortelle → Apocalyptique | Tier 5 : Dévastatrice → Apex
-        threat: "Faible"
+        threat: "Modéré"
     },
     {
         name: "Zombie Crawler",
@@ -46,11 +46,12 @@ const zombies = [
         "\n\nSa mobilité réduite l’empêche de poursuivre efficacement les proies rapides, mais il compense par sa capacité à se déplacer dans des endroits où les autres zombies auraient du mal à passer. Il peut notamment se faufiler sous certains obstacles et surgir de zones difficiles à surveiller."+
         "\n\nBien qu’il soit lent et fortement diminué physiquement, il ne faut jamais le sous-estimer. Dans l’obscurité ou lorsqu’il est dissimulé parmi les débris, il peut facilement passer inaperçu jusqu’à ce qu’il soit déjà trop proche."+
         "\n\nUn corps presque entièrement détruit… mais une infection qui refuse de mourir.",
+        image: "./img/crawler.png",
         // Danger : Dégats PV enlever au joueur * 5
         // Vitesse : au feeling ta capter
         // Résistance : Point d'armure * 5
-        stats: { danger: 20, vitesse: 12, résistance: 10 },
-        statsMax: { danger: 15, vitesse: 60, résistance: 100 },
+        stats: { danger: 20, vitesse: 7, résistance: 10 },
+        statsMax: { danger: 60, vitesse: 40, résistance: 10 },
         tags: ["Commun", "Adaptive"],
         hp: "16  PV",
         spawn: "Partout",
